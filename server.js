@@ -10,8 +10,8 @@ const { handleSignIn } = require("./controllers/signin");
 const { handleProfileGet } = require("./controllers/profile");
 const { handleImage } = require("./controllers/image");
 
-const dotenv = require("dotenv");
-dotenv.config();
+// const dotenv = require("dotenv");
+// dotenv.config();
 
 // //locally
 // const db = knex({
