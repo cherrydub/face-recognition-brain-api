@@ -76,6 +76,7 @@ app.use(cors());
 // };
 
 app.get("/", (req, res) => {
+  console.log("the api deployment has worked");
   db.select("*")
     .from("users")
     .then((users) => {
