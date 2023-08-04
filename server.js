@@ -47,6 +47,8 @@ const db = knex({
 app.use(bodyParser.json());
 app.use(cors());
 
+console.log("logging main page");
+
 // const database = {
 //   users: [
 //     {
