@@ -1,5 +1,5 @@
 const express = require("express");
-const port = 3000;
+const port = process.env.PORT || 3000;
 const app = express();
 const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt-nodejs");
@@ -10,13 +10,28 @@ const { handleSignIn } = require("./controllers/signin");
 const { handleProfileGet } = require("./controllers/profile");
 const { handleImage } = require("./controllers/image");
 
+const dotenv = require("dotenv");
+dotenv.config();
+
+// //locally
+// const db = knex({
+//   client: "pg",
+//   connection: {
+//     host: "127.0.0.1",
+//     user: "ch3rry",
+//     password: "",
+//     database: "smart-brain",
+//   },
+// });
+
 const db = knex({
   client: "pg",
   connection: {
-    host: "127.0.0.1",
-    user: "ch3rry",
-    password: "",
-    database: "smart-brain",
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME,
+    port: process.env.DB_PORT,
   },
 });
 
