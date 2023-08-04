@@ -24,6 +24,8 @@ const { handleImage } = require("./controllers/image");
 //   },
 // });
 
+require("dotenv").config();
+
 const db = knex({
   client: "pg",
   connection: {
@@ -34,6 +36,8 @@ const db = knex({
     port: process.env.DB_PORT,
     ssl: { rejectUnauthorized: false },
   },
+}).catch((error) => {
+  console.error("Knex connection error:", error);
 });
 
 // db.select("*")
